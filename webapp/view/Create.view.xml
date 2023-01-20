@@ -1,0 +1,71 @@
+<mvc:View
+	controllerName="mm.prod.order.cr.controller.Create"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+	xmlns:uxap="sap.uxap"
+    xmlns:smartform="sap.ui.comp.smartform"
+    xmlns:smartfield="sap.ui.comp.smartfield"
+>
+	<uxap:ObjectPageLayout
+        id="idObjectPageLayout"
+		enableLazyLoading="true"
+		showTitleInHeaderContent="true"
+        showFooter="true"
+       
+	>
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader
+                id="idObjectPageHeader"
+				objectTitle="{i18n>CreatePageTitle}"
+				objectSubtitle="{i18n>CreatePageSubtitle}"
+				isObjectTitleAlwaysVisible="false"
+				isObjectSubtitleAlwaysVisible="false"
+			/>
+		</uxap:headerTitle>
+		<uxap:sections>
+			<uxap:ObjectPageSection
+            id="idObjectPageSection"
+
+				titleUppercase="false"
+                title="{i18n>ProductionInfoInputTitle}"
+			>
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="" id="idObjectPageSubSection">
+                        <smartform:SmartForm id="idForm" editable="true">
+                            <smartform:Group id="idGroup" >
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{Plant}"/>
+                                </smartform:GroupElement>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{BasicStartDate}"/>
+                                </smartform:GroupElement>
+                            </smartform:Group>
+                            <smartform:Group id="idGroup2" >
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{Material}"/>
+                                </smartform:GroupElement>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{Quantity}"/>
+                                </smartform:GroupElement>
+                            </smartform:Group>
+
+                        </smartform:SmartForm>
+                        </uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+        <uxap:footer>
+            <Bar>
+                <contentRight>
+                    <Button text="저장" press="onSave" type="Emphasized"/>
+                    <Button text="취소" press="onCancel" type="Transparent"/>
+                </contentRight>
+
+            </Bar>
+        </uxap:footer>
+	</uxap:ObjectPageLayout>
+</mvc:View>

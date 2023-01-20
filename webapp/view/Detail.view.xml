@@ -1,0 +1,65 @@
+<mvc:View
+	controllerName="mm.prod.order.cr.controller.Detail"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+	xmlns:uxap="sap.uxap"
+    xmlns:smartform="sap.ui.comp.smartform"
+    xmlns:smartfield="sap.ui.comp.smartfield"
+>
+	<uxap:ObjectPageLayout
+        id="idObjectPageLayout2"
+		enableLazyLoading="true"
+		showTitleInHeaderContent="true"
+	>
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader
+                id="idObjectPageHeader"
+				objectTitle="오더 번호 : {OrderNumber}"
+				objectSubtitle="자재 번호 : {Material}"
+				isObjectTitleAlwaysVisible="false"
+				isObjectSubtitleAlwaysVisible="false"
+			>
+                <uxap:actions>
+                    <Button text="이전 화면" press="onNavBack" type="Emphasized"/>
+                </uxap:actions>
+           </uxap:ObjectPageHeader>
+		</uxap:headerTitle>
+		<uxap:sections>
+			<uxap:ObjectPageSection
+            id="idObjectPageSection"
+				titleUppercase="false"
+                title="{i18n>ProductionInfoInputTitle}"
+			>
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="" id="idObjectPageSubSection">
+                        <smartform:SmartForm id="idForm" >
+                            <smartform:Group id="idGroup" >
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{OrderNumber}"/>
+                                </smartform:GroupElement>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{Plant}"/>
+                                </smartform:GroupElement>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{BasicStartDate}"/>
+                                </smartform:GroupElement>
+                            </smartform:Group>
+                            <smartform:Group id="idGroup2" >
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{Material}"/>
+                                </smartform:GroupElement>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{Quantity}"/>
+                                </smartform:GroupElement>
+                            </smartform:Group>
+                        </smartform:SmartForm>
+                        </uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+</mvc:View>

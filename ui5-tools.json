@@ -1,0 +1,18 @@
+{
+  "deployer": {
+    "type": "Gateway",
+    "options": {
+      "conn": {
+        "server": "https://api.cf.us10-001.hana.ondemand.com",
+        "client": "100"
+      },
+      "ui5": {
+        "language": "EN",
+        "package": "ZFIORI",
+        "bspcontainer": "ZFIORIAPP",
+        "bspcontainer_text": "TSET",
+        "calc_appindex": true
+      }
+    }
+  }
+}

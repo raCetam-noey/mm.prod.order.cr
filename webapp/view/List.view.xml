@@ -1,0 +1,75 @@
+<mvc:View
+	controllerName="mm.prod.order.cr.controller.List"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:smartvariants="sap.ui.comp.smartvariants"
+	xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable"
+>
+	<f:DynamicPage>
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="{i18n>ListPageTitle}"/>
+					<smartvariants:SmartVariantManagement
+						id="idSmartVariant"
+						persistencyKey="SmartFilter_Variant"
+						showShare="true"
+						showExecuteOnSelection="true"
+					>
+					</smartvariants:SmartVariantManagement>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader>
+				<f:content>
+					<smartfilterbar:SmartFilterBar
+						id="idSmartFilterBar"
+						useToolbar="false"
+						smartVariant="idSmartVariant"
+						entitySet="YC_ORDER_BAPI"
+						persistencyKey="SmartFilter_Explored"
+					/>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<smarttable:SmartTable
+				id="idSmartTable"
+				entitySet="YC_ORDER_BAPI"
+				smartFilterId="idSmartFilterBar"
+				header="{i18n>TableTitle}"
+				tableType="ResponsiveTable"
+				enableAutoBinding="true"
+				class="sapUiResponsiveContentPadding"
+				demandPopin="true"
+                
+			>
+				<smarttable:customToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+                        <Button
+                            icon='{i18n>CreateButtonIcon}'
+                            text="{i18n>CreateButton}"
+                            press="navCreate"
+                            type="Transparent"/>
+
+					</Toolbar>
+				</smarttable:customToolbar>
+                <smarttable:items>
+                    <Table growing="true"
+                    growingScrollToLoad="true"
+                    fixedLayout="false"
+                    itemPress="navDetail"
+                    mode="SingleSelectMaster">
+                    <ColumnListItem type="Navigation"/>
+                </Table>
+
+                </smarttable:items>
+			</smarttable:SmartTable>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>
